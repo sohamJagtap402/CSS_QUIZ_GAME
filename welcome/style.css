@@ -1,0 +1,89 @@
+/* General styling for the introduction page */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('./BRAIN.jpg');
+    background-size:cover;
+    background-repeat: no-repeat;
+    color: #adfffb;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    background-position: center; /* Adjust this property as needed */
+}
+
+/* Styling for the introduction container */
+.intro-container {
+    text-align: center;
+    animation: fadeIn 2s ease; /* Fade-in animation */
+}
+
+/* Unique styling for the "A-QUIZITION" text */
+.intro-text {
+    font-size: 5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 5px;
+}
+
+/* Additional description text */
+.intro-description {
+    font-size: 2rem;
+    font-family:'Times New Roman';
+    font-style: oblique;
+    margin-bottom: 40px;
+    animation: slideInUp 2s ease; /* Slide-in animation */
+    color:  #000000;
+    font-weight: bold;
+    
+}
+
+/* Start quiz button */
+.start-button {
+    position: absolute;
+    bottom: 20px; /* Adjust the distance from the bottom */
+    right: 20px; /* Adjust the distance from the right */
+    padding: 10px 20px;
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 30px; /* Rounded button */
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Add a subtle shadow */
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: background-color 0.5s ease;
+}
+
+.start-button::after {
+    /* content: "➡"; Arrow symbol */
+    margin-left: 10px; /* Adjust the spacing between text and arrow */
+}
+
+.start-button:hover {
+    background-color: #ffb260;
+}
+
+/* Keyframes for animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        transform: translateY(40px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

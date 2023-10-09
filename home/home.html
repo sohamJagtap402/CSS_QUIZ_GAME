@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Home Page</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://kit.fontawesome.com/615b404a8b.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <video autoplay loop muted id="background-video">
+        <source src="../welcome/bgvideo.mp4" type="video/mp4">
+        <!-- Add additional source elements for other video formats if needed -->
+    </video>
+    <header>
+        <img src="../welcome/A01.jpg" alt="A">
+        <div class="header-text">
+            <h1>-quizition</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="help.html">Help</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h2>Select A Quiz Type</h2>
+    <div id="quizTypes">
+
+        <div class="gk-quiz">
+            <img src="../welcome/brain-03.jpg" alt="Quiz Image">
+            <a href="../index/index.html" class="quiz-button">General Knowledge</a>
+        </div>
+
+        <div class="gk-quiz">
+            <img src="../welcome/brain-03.jpg" alt="Quiz Image">
+            <a href="../index/index.html" class="geo-button">Geographical</a>
+        </div>
+        <div class="gk-quiz">
+            <img src="../welcome/brain-03.jpg" alt="Quiz Image">
+            <a href="../index/index.html" class="sport-button">Sports</a>
+        </div>
+        <div class="gk-quiz">
+            <img src="../welcome/brain-03.jpg" alt="Quiz Image">
+            <a href="../index/index.html" class="pol-button">Political</a>
+        </div>
+    </div>
+
+    <div class="login-overlay" id="login-overlay">
+        <div class="login-container">
+            <span class="close-button" id="close-button">&times;</span>
+            <h1>Login</h1>
+            <form id="login-form" action="../home/home.html" onsubmit="return validate()">
+                <div class="input-container">
+                    <input type="text" id="username" name="username" placeholder="Username" required>
+                    <i class="fas fa-user"></i>
+                    <div id="invalid-user" class="error-message"></div>
+                </div>
+                <div class="input-container">
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                    <i class="fas fa-lock" id="show-password" onclick="togglePasswordVisibility()"></i>
+                    <div id="invalid-pwd" class="error-message"></div>
+                </div>
+
+                <button type="submit">Login</button>
+            </form>
+            <p>Don't have an account? <a href="../home/home.html">Register</a></p>
+        </div>
+    </div>
+
+
+    <script>
+
+        setTimeout(() => {
+            manipulateDiv();
+        }, 5000);
+        const loginOverlay = document.getElementById("login-overlay");
+        const closeButton = document.getElementById("close-button");
+
+        // Close the login container
+        closeButton.addEventListener("click", () => {
+            loginOverlay.style.animation = "none"; // Remove animation
+            setTimeout(() => {
+                loginOverlay.style.display = "none";
+            }, 0);
+        });
+
+        // Trigger the drop animation when the page loads
+        window.addEventListener("load", () => {
+            setTimeout(() => {
+                loginOverlay.style.animation = "drop 1.0s ease-in-out forwards";
+                loginOverlay.style.display = "flex"; // Change display property to flex
+            }, 50000);
+        });
+
+
+        function togglePasswordVisibility() {
+            const passwordField = document.getElementById("password");
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                document.getElementById("show-password").className = "fas fa-lock-open";
+            } else {
+                passwordField.type = "password";
+                document.getElementById("show-password").className = "fas fa-lock";
+            }
+        }
+
+        function validate() {
+            const user = document.getElementById("username").value;
+            const pwd = document.getElementById("password").value;
+            const errorUser = document.getElementById("invalid-user");
+            const errorPwd = document.getElementById("invalid-pwd");
+
+            // Reset error messages
+            errorUser.textContent = "";
+            errorPwd.textContent = "";
+
+            if (user === "soham" && pwd === "soham5405") {
+                // Successful login, no errors
+                return true;
+            } else {
+                // Invalid login
+                if (user !== "soham") {
+                    errorUser.textContent = "Invalid username!";
+                    username.focus();
+                }
+                if (pwd === "") {
+                    errorPwd.textContent = "Password field cannot be empty!";
+                } else {
+                    errorPwd.textContent = "Invalid password!";
+                    password.focus();
+                }
+                return false;
+            }
+        }
+    </script>
+    <p class="copyright">&copy; 2023 Quiz Game</p>
+</body>
+
+</html>
